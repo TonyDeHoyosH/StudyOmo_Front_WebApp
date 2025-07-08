@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regístrate - StudyOmo</title>
+
+    <!-- Google Fonts: Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/sign_in/styles.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <img src="/sign_in/assets/logo_StudýOmo.png" alt="logo_StudýOmo" class="app-header__logo">
+        <span class="app-header__brand-name">StudyOmo</span>
+    </header>
+
+    <main class="main-content">
+        <div class="signup-card">
+            <h1 class="signup-card__title">Regístrate</h1>
+            
+            <form class="signup-form" id="signupForm">
+                <div class="form-group">
+                    <label for="username" class="form-group__label">Nombre de Usuario</label>
+                    <input type="text" id="username" class="form-group__input" placeholder="Ingresa tu nombre de usuario" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-group__label">Contraseña</label>
+                    <input type="password" id="password" class="form-group__input" placeholder="Ingresa tu contraseña" required minlength="4">
+                </div>
+
+                <button type="submit" class="signup-form__button">Crear cuenta</button>
+            </form>
+
+            <p class="signup-card__footer">
+                ¿Ya tienes una cuenta? <a href="#" class="signup-card__link">Inicia Sesión</a>
+            </p>
+        </div>
+    </main>
+
+    <script src="/sign_in/script.js"></script>
+</body>
+</html>

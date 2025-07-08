@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicia Sesión - StudyOmo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/log-in/styles.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <img src="/log-in/assets/logo_StudýOmo.png" alt="Logo de StudyOmo" class="app-header__logo" />
+    <span class="app-header__brand-name">StudyOmo</span>
+  </header>
+
+  <main class="main-content">
+    <div class="login-card">
+      <h1 class="login-card__title">Inicia Sesión</h1>
+
+      <form class="login-form" id="loginForm">
+        <div class="form-group">
+          <label for="username" class="form-group__label">Nombre de Usuario</label>
+          <input type="text" id="username" class="form-group__input" placeholder="Ingresa tu nombre de usuario" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-group__label">Contraseña</label>
+          <input type="password" id="password" class="form-group__input" placeholder="Ingresa tu contraseña" required />
+        </div>
+
+        <button type="submit" class="login-form__button">Inicia Sesión</button>
+      </form>
+
+      <p class="login-card__footer">
+        ¿Aún no tienes una cuenta?
+        <a href="registro.html" class="login-card__link">Regístrate</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="/log-in/script.js"></script>
+</body>
+</html>

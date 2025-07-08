@@ -1,0 +1,261 @@
+/* ====================================================================== */
+/* CONFIGURACIÓN GLOBAL Y VARIABLES                                       */
+/* ====================================================================== */
+:root {
+    --primary-blue: #196499;
+    --button-blue: #2980b9;
+    --button-hover-blue: #3498db;
+    --white: #FFFFFF;
+    --light-blue-1: #A5D8FF;
+    --light-blue-2: #57A9E8;
+    --text-color: #196499;
+    --font-family: 'Nunito', sans-serif;
+}
+
+/* Reseteo básico y configuración de fuente global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--primary-blue);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ====================================================================== */
+/* COMPONENTE REUTILIZABLE: Botón (Button)                                */
+/* ====================================================================== */
+.btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 25px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn--primary {
+    background-color: var(--button-blue);
+    color: var(--white);
+}
+
+.btn--primary:hover {
+    background-color: var(--button-hover-blue);
+    transform: translateY(-2px);
+}
+
+/* ====================================================================== */
+/* COMPONENTE REUTILIZABLE: Barra de Navegación (Navbar)                  */
+/* ====================================================================== */
+.navbar {
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar__brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__logo {
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+    /* El src está vacío, así que usamos un fondo como placeholder */
+}
+
+.navbar__brand-name {
+    font-size: 22px;
+    font-weight: 800;
+    margin-left: 12px;
+}
+
+.navbar__links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar__link {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.navbar__link:hover {
+    opacity: 1;
+}
+
+.navbar__link svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Objeto #4: Avatar de usuario */
+.navbar__user {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #f39c12; /* Color de fondo mientras carga la imagen */
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--white);
+}
+
+/* ====================================================================== */
+/* ESTILOS DE LA VISTA PRINCIPAL                                          */
+/* ====================================================================== */
+.main-view {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ====================================================================== */
+/* COMPONENTE REUTILIZABLE: Tarjeta de Información (Info Card)            */
+/* ====================================================================== */
+.info-card {
+    background-color: var(--white);
+    color: var(--text-color);
+    border-radius: 20px;
+    padding: 40px;
+    padding-left: 140px; /* Espacio para el logo visual */
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    opacity: 0; /* Inicialmente invisible para la animación */
+    transform: translateY(20px); /* Posición inicial para la animación */
+}
+
+/* Animación de fade in */
+.info-card.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Objeto #1: Recurso visual (logo de baloncesto) */
+.info-card__visual {
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 200px;
+    background-color: var(--light-blue-2);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.info-card__visual::before,
+.info-card__visual::after {
+    content: '';
+    position: absolute;
+    border: 4px solid var(--white);
+    border-radius: 50%;
+}
+
+.info-card__visual::before {
+    width: 150%;
+    height: 150%;
+    top: -85%;
+    left: -25%;
+}
+
+.info-card__visual::after {
+    width: 150%;
+    height: 150%;
+    bottom: -85%;
+    right: -25%;
+}
+
+/* Objeto #2: Contenido de texto */
+.info-card__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card__heading {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.info-card__text {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* Objeto #3: Botón de acción */
+.info-card__action {
+    align-self: flex-start;
+}
+
+/* ====================================================================== */
+/* MEDIA QUERIES PARA RESPONSIVE DESIGN                                   */
+/* ====================================================================== */
+@media (max-width: 768px) {
+    .navbar__links {
+        display: none; /* Ocultamos los iconos centrales en pantallas pequeñas */
+    }
+
+    .main-view {
+        align-items: flex-start;
+        padding-top: 50px;
+    }
+
+    .info-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        padding-top: 100px; /* Espacio para el logo que ahora está arriba */
+    }
+
+    .info-card__visual {
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 160px;
+        height: 160px;
+    }
+
+    .info-card__content {
+        align-items: center;
+    }
+    
+    .info-card__heading {
+        font-size: 24px;
+    }
+
+    .info-card__text {
+        font-size: 16px;
+    }
+
+    .info-card__action {
+        align-self: center;
+    }
+}
